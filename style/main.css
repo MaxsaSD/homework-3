@@ -1,0 +1,16 @@
+        header {
+            margin: 0px -20px 10px -20px;
+        }
+
+        nav {
+            margin: 10px -20px 20px 20px;
+        }
+
+        body {
+            font-family: 'Tahoma', sans-serif;
+            margin: 0px 50px 0px 50px;
+        }
+        
+        table, tr, td{
+            border: 1px solid #000;
+        }
