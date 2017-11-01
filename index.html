@@ -1,27 +1,219 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Анкета</title>
-</head>
-<body>
-<header>
-    <nav><a href="index.html">Головна</a><a href="table.html">Таблиця</a></nav>
-</header>  
-<main>
-    
-<!-- елементи управління -->
+    <style type="text/css">
+        header {
+            margin: 0px -20px 10px -20px;
+        }
 
-</main>
-<footer>
-<section>
-    Homework #3
-</section>    
-<section>
-    Serhiy Plotitsyn
-</section>    
-</footer>    
+        nav {
+            margin: 10px -20px 20px 20px;
+        }
+
+        body {
+            font-family: 'Tahoma', sans-serif;
+            margin: 0px 50px 0px 50px;
+        }
+    </style>
+
+    <title>Оренда автомобіля</title>
+</head>
+
+<body>
+    <header>
+        <img src="images/main_banner.jpg" alt="Main Banner" /><br>
+        <nav>
+            <a href="index.html">Головна</a>&emsp;
+            <a href="table.html">Таблиця</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Оренда автомобіля</h1>
+        <!-- Client Data -->
+        <div>
+            <form id="client_data" method="get" action="">
+                <section>
+                    <fieldset>
+                        <h3>Дані клієнта</h3>
+                        <label for="client_name"><small><b>Прізвище та ім'я</b> &nbsp;(обов'язкове')</small></label><br>
+                        <input type="text" placeholder="Прізвище та ім'я" name="client_name" id="client_name" required/><br>
+                        <label for="client_phone"><small><b>Телефон</b>&nbsp;(обов'язкове')</small></label><br>
+                        <input type="phone" placeholder="380509876543" name="client_phone" id="client_phone" required pattern="[\d]{5}[\d]{7}" />&emsp;<small>Наприклад: 380509876543</small><br>
+                        <label for="client_email"><small><b>Email</b>&nbsp;(обов'язкове')</small></label><br>
+                        <input type="phone" placeholder="your_email@server.ua" name="client_email" id="client_email" required />&emsp;<small>Наприклад: your_email@server.ua</small>
+                    </fieldset>
+                </section>
+                <br>
+                <section>
+                    <fieldset>
+                        <h3>Період оренди:</h3>
+                        <label><small><b>Отримання авто:</b></small>
+                            <input type="datetime-local" name="client_start_date" min="2017-11-01T18:00" required/>
+                        </label>&emsp;
+                        <label><small><b>Повернення авто:</b></small>
+                            <input type="datetime-local" name="client_end_date" min="2017-11-01T18:30" required/>
+                        </label>
+                        <br><br><hr>
+                        <h3>Вартість оренди <small>(грн)</small>:</h3>
+                        <label><small><b>від:</b></small>
+                            <input type="number" placeholder="від 500" min="500" max="50000" step="10" value="" name="client_price_min" />
+                        </label> &emsp;
+                        <label><small><b>до:</b></small>
+                            <input type="number" placeholder="до 50'000" min="500" max="50000" step="10" value="" name="client_price_max" />
+                        </label>
+                    </fieldset>
+                </section>
+                <br>
+                <section>
+                    <fieldset>
+                        <h3>Вибір автомобіля:</h3>
+                        <label><small><b>Модель:</b></small>
+                            <input type="text" placeholder="виберіть зі списку" name="list_auto" list="list_auto" />
+          	                    <datalist id="list_auto" >
+        			                <option label="Alfa Romeo" value="Brera"></option>
+                                    <option label="Alfa Romeo" value="Spider"></option>
+        			                <option label="Aston Martin" value="Rapide"></option>
+                                    <option label="Aston Martin" value="Virage"></option>
+                                    <option label="Audi" value="A5"></option>
+                                    <option label="Audi" value="A3"></option>
+                                    <option label="BMW" value="I3"></option>
+                                    <option label="BMW" value="M5"></option>
+                                    <option label="Mercedes-Benz" value="A"></option>
+                                    <option label="Mercedes-Benz" value="B"></option>
+        		                </datalist>
+                       </label>
+                       <br><br><hr>
+                        <h3>Тип палива авто:</h3>
+                        <label>
+                            <input type="radio" name="fuel" value="fuel_petrol" checked>
+                            <small><b>Бензин</b></small>
+                        </label>&emsp;
+                        <label>
+                            <input type="radio" name="fuel" value="fuel_diesel">
+                            <small><b>Дизель</b></small>
+                        </label>&emsp;
+                        <label>
+                            <input type="radio" name="fuel" value="fuel_gas">
+                            <small><b>Газ</b></small>
+                        </label>&emsp;
+                        <label>
+                            <input type="radio" name="fuel" value="fuel_hybrid">
+                            <small><b>Гібрид</b></small>
+                        </label>&emsp;
+                        <label>
+                            <input type="radio" name="fuel" value="fuel_electro">
+                            <small><b>Електро</b></small>
+                        </label>
+                        <br><br><hr>
+                        <h3>КПП:</h3>
+                        <label>
+                            <input type="radio" name="transmission" value="transmission_manual" checked>
+                            <small><b>Механіка</b></small>
+                        </label>&emsp;
+                        <label>
+                            <input type="radio" name="transmission" value="transmission_auto">
+                            <small><b>Автомат</b></small>
+                        </label>&emsp;
+                        <label>
+                            <input type="radio" name="transmission" value="transmission_tip">
+                            <small><b>Типтронік</b></small>
+                        </label>&emsp;
+                        <label>
+                            <input type="radio" name="transmission" value="transmission_var">
+                            <small><b>Варіатор</b></small>
+                        </label>
+                        <br><br><hr>
+                        <h3>Тип приводу:</h3>
+                        <label>
+                            <input type="radio" name="wheel" value="wheel_front" checked>
+                            <small><b>передній</b></small>
+                        </label>&emsp;
+                        <label>
+                            <input type="radio" name="wheel" value="wheel_rear">
+                            <small><b>задній</b></small>
+                        </label>&emsp;
+                        <label>
+                            <input type="radio" name="wheel" value="wheel_four">
+                            <small><b>повний</b></small>
+                        </label>
+                        <br><br><hr>
+                        <h3>Колір автомобіля:</h3>
+                        <label><small><b>Виберіть колір:</b></small>
+                            <input type="color" name="car_color">
+                        </label>
+                        <br><br><hr>
+                        <h3>Функції для комфорту:</h3>
+                        <label>
+                            <input type="checkbox" name="confort" value="newsletter">
+                            <small><b>Бортовий комп'ютер</b></small>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="confort" value="newsletter">
+                            <small><b>Клiмат контроль</b></small>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="confort" value="newsletter">
+                            <small><b>Люк</b></small>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="confort" value="newsletter">
+                            <small><b>Обігрів керма</b></small>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="confort" value="newsletter">
+                            <small><b>Підігрів дзеркал</b></small>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="confort" value="newsletter">
+                            <small><b>Шкіряний салон</b></small>
+                        </label
+                        <label>
+                            <input type="checkbox" name="confort" value="newsletter">
+                            <small><b>Круїз контроль</b></small>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="confort" value="newsletter">
+                            <small><b>Парктроник</b></small>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="confort" value="newsletter">
+                            <small><b>Підігрів сидінь</b></small>
+                        </label>
+                    </fieldset>
+                </section>
+                <br><br>
+                <input type="submit" value="В І Д П Р А В И Т И" />&emsp;
+                <input type="reset" value="С К А С У В А Т И" />
+            </form>
+        </div>
+        <br><br><hr>
+        <article>
+            Все, що вам потрібно мати для того, щоб забронювати автомобіль - це кредитна або дебетова картка. В момент отримання автомобіля вам потрібно буде мати з собою наступне:
+            <ol>
+                <li>Ваш ваучер/електронний ваучер від як підтвердження оплати оренди.</li>
+                <li>Кредитна/дебетова картка головного водія з достатньою кількістю вільних грошових коштів на ній для внесення застави за автомобіль.</li>
+                <li>Дійсні водійські права кожного водія, видані не пізніше, ніж 12 місяців тому (часто 24 місяці тому).</li>
+                <li>Ваш паспорт і будь-яке інше посвідчення особи, які потрібно пред'явити прокатній компанії.</li>
+            </ol>
+            <ul type="scuare">
+                <li><strong>Простір:</strong> Ваша оренда вам сподобається набагато більше, якщо ви оберете автомобіль з великим простором для своїх пасажирів і багажу.</li>
+                <li><strong>Паливна політика:</strong> Не плануєте їздити багато? Політика палива "повний бак - повний бак" може суттєво зекономити ваші кошти.</li>
+                <li><strong>Місце отримання:</strong> Неможливо перевершити отримання автомобіля "на території аеропорту" у плані зручності, але отримання автомобіля "поза зоною аеропорту" за допомогою трансферу може виявитися набагато дешевшим.</li>
+            </ul>
+            Різні прокатні компанії мають різні вимоги, тому, будь ласка, також обов'язково ознайомтеся з умовами оренди автомобіля.<br><br>
+        </article>
+    </main>
+    <footer>
+        <hr>
+        <p>
+            <em>Homework #3</em> &copy;&emsp;<strong>Serhiy Plotitsyn</strong>
+        </p>
+    </footer>
 </body>
+
 </html>
